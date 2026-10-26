@@ -1,0 +1,29 @@
+    1  pwd
+    2  cd ~
+    3  pwd
+    4  mkdir logs 
+    5  cd logs
+    6  cat > sys_events.log <<'EOF'\n2026-10-25 08:00:01 INFO System boot completed\n2026-10-25 08:01:12 INFO user01 logged into the system\n2026-10-25 08:02:45 WARNING Failed login attempt for user01\n2026-10-25 08:03:09 ERROR Authentication service timeout\n2026-10-25 08:04:21 INFO root performed scheduled maintenance\n2026-10-25 08:05:32 INFO Network interface initialized\n2026-10-25 08:06:40 ERROR Disk check failed\n2026-10-25 08:07:11 INFO user01 opened a new session\n2026-10-25 08:08:25 WARNING Unusual permission change detected\n2026-10-25 08:09:33 INFO root reviewed system status\n2026-10-25 08:10:44 ERROR Service restart failed\n2026-10-25 08:11:05 INFO Backup process started\n2026-10-25 08:12:19 WARNING Disk usage above threshold\n2026-10-25 08:13:27 INFO user01 accessed training directory\n2026-10-25 08:14:38 ERROR Invalid configuration value\n2026-10-25 08:15:49 INFO root checked audit logs\n2026-10-25 08:16:52 INFO Firewall rules loaded successfully\n2026-10-25 08:17:06 WARNING Repeated login failures for user01\n2026-10-25 08:18:17 ERROR Application could not open file\n2026-10-25 08:19:28 INFO System health check completed\n2026-10-25 08:20:39 INFO root ended maintenance session\n2026-10-25 08:21:40 WARNING Temporary storage nearly full\nEOF
+    7  cat sys_events.logs
+    8  cat > sys_events.log <<'EOF'\n2026-10-25 08:00:01 INFO System boot completed\n2026-10-25 08:01:12 INFO user01 logged into the system\n2026-10-25 08:02:45 WARNING Failed login attempt for user01\n2026-10-25 08:03:09 ERROR Authentication service timeout\n2026-10-25 08:04:21 INFO root performed scheduled maintenance\n2026-10-25 08:05:32 INFO Network interface initialized\n2026-10-25 08:06:40 ERROR Disk check failed\n2026-10-25 08:07:11 INFO user01 opened a new session\n2026-10-25 08:08:25 WARNING Unusual permission change detected\n2026-10-25 08:09:33 INFO root reviewed system status\n2026-10-25 08:10:44 ERROR Service restart failed\n2026-10-25 08:11:05 INFO Backup process started\n2026-10-25 08:12:19 WARNING Disk usage above threshold\n2026-10-25 08:13:27 INFO user01 accessed training directory\n2026-10-25 08:14:38 ERROR Invalid configuration value\n2026-10-25 08:15:49 INFO root checked audit logs\n2026-10-25 08:16:52 INFO Firewall rules loaded successfully\n2026-10-25 08:17:06 WARNING Repeated login failures for user01\n2026-10-25 08:18:17 ERROR Application could not open file\n2026-10-25 08:19:28 INFO System health check completed\n2026-10-25 08:20:39 INFO root ended maintenance session\n2026-10-25 08:21:40 WARNING Temporary storage nearly full\nEOF
+    9  grep -E "root | user01"  sys_events.log
+   10  grep "ERROR" sys_events.log | less
+   11  grep "ERROR" sys_events.log | less > error_report.txt
+   12  ls
+   13  head -n5 sys_events.log
+   14  tail -n5 sys_events.log
+   15  cat sys_events.log
+   16  touch confidential.txt
+   17  ls -l
+   18  chmod 600 confidential.txt
+   19  ls -l
+   20  sudo chown root confidential.txt
+   21  ls -l
+   22  nano confidential.txt 
+   23  sudo adduser guest1
+   24  sudo adduser guest2
+   25  sudo useradd guest2
+   26  sudo useradd guest3
+   27  sudo useradd guest4
+   28  sudo userdel  -rf guest4
+   29  history

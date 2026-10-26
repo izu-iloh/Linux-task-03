@@ -1,0 +1,14 @@
+# Temporary/editor files
+*~
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Keep folder placeholders
+!.gitkeep
+
+# Do not commit private credentials or unrelated system data
+.env
+*.key
+*.pem

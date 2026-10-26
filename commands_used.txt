@@ -1,0 +1,53 @@
+# Linux Task 03 — Exact commands used
+# Replace this template with the exact commands you actually ran.
+# Do not leave commands listed here if you did not run them.
+# Do not record passwords.
+
+# Part 1: user creation and login
+sudo useradd -m -s /bin/bash forensic01
+sudo usermod -aG sudo forensic01
+sudo passwd forensic01
+su - forensic01
+whoami
+id
+
+# Part 1: directory and mock log file
+mkdir -p /home/forensic01/logs
+cd /home/forensic01/logs
+# Record the cat <<'EOF' ... EOF or echo commands you actually used to create sys_events.log.
+wc -l sys_events.log
+
+# Part 2: filtering and viewing
+grep "ERROR" sys_events.log
+grep -E "root|user01" sys_events.log
+grep "ERROR" sys_events.log | less
+grep -E "root|user01" sys_events.log | less
+grep "ERROR" sys_events.log > error_report.txt
+head -n 5 sys_events.log
+tail -n 5 sys_events.log
+cat sys_events.log
+cat error_report.txt
+
+# Part 3: permissions and ownership
+touch confidential.txt
+chmod 600 confidential.txt
+ls -l confidential.txt
+sudo chown root confidential.txt
+ls -l confidential.txt
+cat confidential.txt
+printf 'Test edit\n' >> confidential.txt
+
+# Part 4: user management
+sudo useradd -m -s /bin/bash guest1
+sudo useradd -m -s /bin/bash guest2
+sudo usermod -aG sudo guest1
+id guest1
+getent passwd guest2
+sudo userdel -r guest2
+getent passwd guest2
+
+# Verification
+id forensic01
+getent passwd forensic01
+ls -l /home/forensic01/logs
+ls -l /home/forensic01/logs/confidential.txt
